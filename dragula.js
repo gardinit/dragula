@@ -645,14 +645,14 @@ function startAutoScrolling(node, amount, direction) {
 }
 
 function startScroll(item, pageX, pageY, options) {
-  
+  var scrollingElement = null;
+  var scrollEdge = options.scrollEdge;
+  var scrollSpeed = 20;
   var scrollContainer = getScrollContainer(item);
   caf(_autoScrollingInterval);
   // If a container contains the list that is scrollable
   if (scrollContainer) {
-    var scrollingElement = null;
-    var scrollEdge = options.scrollEdge;
-    var scrollSpeed = 20;
+
     // Scrolling vertically
     if (pageY - getOffset(scrollContainer).top < scrollEdge) {
       startAutoScrolling(scrollContainer, -scrollSpeed, 'scrollTop');
